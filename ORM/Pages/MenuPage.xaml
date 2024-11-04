@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ORM.Pages.MenuPage"
+             Title="MenuPage">
+    <StackLayout>
+        <ListView x:Name="MenuItemsListView">
+            <ListView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Home</x:String>
+                    <x:String>Ventas</x:String>
+                </x:Array>
+            </ListView.ItemsSource>
+        </ListView>
+    </StackLayout>
+</ContentPage>
