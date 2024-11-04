@@ -12,10 +12,22 @@ public partial class MenuPage : ContentPage
     { if (e.SelectedItem == null) return; 
         Page page = null; switch (e.SelectedItem.ToString()) 
         { 
-            case "Home": page = new HomePage(); 
+            case "Inicio": page = new HomePage(); 
                 break; 
             case "Ventas": page = new Sales(); 
-                break; 
+                break;
+            case "Inventario":
+                page = new Inventario();
+                break;
+            case "Clientes":
+                page = new Clientes();
+                break;
+            case "Proveedores":
+                page = new Reportes();
+                break;
+            case "Reportes":
+                page = new Reportes();
+                break;
         } 
         ((FlyoutPage)Application.Current.MainPage).Detail = new NavigationPage(page); 
         ((FlyoutPage)Application.Current.MainPage).IsPresented = false; }
