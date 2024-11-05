@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ORM.Pages.Proveedores"
-             Title="Proveedores">
+             x:Class="ORM.Componentes.NuevaUnidad"
+             Title="NuevaUnidad">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome Proveedores"
+            Text="Welcome to .NET MAUI!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        <Button Text="Nuevo Proveedor" Clicked="Nuevo_Proveedor"/>
     </VerticalStackLayout>
 </ContentPage>

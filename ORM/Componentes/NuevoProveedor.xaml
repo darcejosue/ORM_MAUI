@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ORM.Componentes.NuevoProveedor"
+             Title="NuevoProveedor">
+    <ScrollView>
+        <StackLayout Padding="10">
+            <Label Text="Nombre" />
+            <Entry x:Name="NombreEntry" Placeholder="Ingrese el nombre del proveedor" />
+            <Label Text="Teléfono" />
+            <Entry x:Name="TelefonoEntry" Placeholder="Ingrese el teléfono del proveedor" Keyboard="Telephone" />
+            <Button Text="Guardar" Clicked="OnAddProveedorClicked" />
+
+            <ListView x:Name="ProveedorListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <ViewCell >
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Nombre}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
+                                <Label Text="{Binding Telefono}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

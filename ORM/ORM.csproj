@@ -64,6 +64,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Componentes\Buscador.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Componentes\NuevaUnidad.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Componentes\NuevoInventario.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Componentes\NuevoProveedor.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\Clientes.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

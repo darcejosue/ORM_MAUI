@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ORM.Componentes.NuevoInventario"
+             Title="NuevoInventario">
+    
+       <ScrollView>
+            <StackLayout Padding="10">
+                 <Button Text="Back to list" Clicked="OnBackButtonClicked"/>
+               
+                <Label Text="Nombre" />
+                <Entry x:Name="NameEntry" Placeholder="Ingrese el nombre del producto" />
+            
+                <Label Text="Proveedor" />
+            <Picker x:Name="ProveedorPicker" Title="Seleccione un proveedor">
+                <!-- Proveedores añadidos en el código detrás -->
+            </Picker>
+                
+            <Label Text="Unidad de Medida" />
+            <Picker x:Name="UnidadDeMedidaPicker" Title="Seleccione una unidad de medida">
+                <!-- Unidades de medida añadidas en el código detrás -->
+            </Picker>
+                
+            <Label Text="Precio de Compra" />
+                <Entry x:Name="PrecioCompraEntry" Placeholder="Ingrese el precio de compra" Keyboard="Numeric" />
+               
+                <Label Text="Precio de Venta" />
+                <Entry x:Name="PrecioVentaEntry" Placeholder="Ingrese el precio de venta" Keyboard="Numeric" />
+               
+                <Label Text="Cantidad" />
+                <Entry x:Name="CantidadEntry" Placeholder="Ingrese la cantidad" Keyboard="Numeric" />
+               
+                <Label Text="Fecha de Caducidad" />
+                <DatePicker x:Name="FechaCaducidadDatePicker" />
+
+            <Button Text="Guardar"  Clicked="OnSaveButtonClicked"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage>

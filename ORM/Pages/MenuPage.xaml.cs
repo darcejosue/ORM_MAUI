@@ -23,7 +23,7 @@ public partial class MenuPage : ContentPage
                 page = new Clientes();
                 break;
             case "Proveedores":
-                page = new Reportes();
+                page = new Proveedores();
                 break;
             case "Reportes":
                 page = new Reportes();

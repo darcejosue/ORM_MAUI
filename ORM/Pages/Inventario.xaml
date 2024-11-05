@@ -4,22 +4,27 @@
              x:Class="ORM.Pages.Inventario"
              Title="Inventario">
     
-    <VerticalStackLayout>
+    <VerticalStackLayout Padding="10">
         <SearchBar Placeholder="Buscar articulo..."/>
 
-        <Entry x:Name="NameEntry" Placeholder="Name"/>
-        <Entry x:Name="DescriptionEntry" Placeholder="Description"/>
-        <Button Text="Add Item" Clicked="OnAddItemClicked"/>
-        <ListView x:Name="ItemsListView">
+        <Button Text="GO to inventario" Clicked="OnNavigateButtonClicked"/>
+
+        <ListView x:Name="ItemsListView" >
             <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="{Binding Name}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
-                            <Label Text="{Binding Description}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" />
-                            <Button Text="Editar" Clicked="OnEditItemClicked" CommandParameter="{Binding .}" />
-                            <Button Text="Eliminar" Clicked="OnDeleteItemClicked" CommandParameter="{Binding .}" />
+                <DataTemplate >
+                    <ViewCell >
+                      <StackLayout Padding="10" >
+                            <Label Text="{Binding Nombre}" />
+                            <Label Text="{Binding Proveedor}"  />
+                            <Label Text="{Binding Cantidad }" />
+                            <Label Text="{Binding UnidadDeMedida}"  />
+                            <Label Text="{Binding PrecioCompra}"  />
+                            <Label Text="{Binding PrecioVenta}"  />
+                            <Label Text="{Binding FechaCaducidad, StringFormat='Caduca el {0:dd/MM/yyyy}' }"  />
+                            <Button Text="Editar" Clicked="OnNavigateButtonClicked" CommandParameter="{Binding .}" />
+                            <Button Text="Eliminar" Clicked="OnDeleteItemClicked" CommandParameter="{Binding .}"  />
                         </StackLayout>
+                        
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
