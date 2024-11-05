@@ -3,32 +3,85 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ORM.Pages.Inventario"
              Title="Inventario">
-    
-    <VerticalStackLayout Padding="10">
-        <SearchBar Placeholder="Buscar articulo..."/>
 
-        <Button Text="GO to inventario" Clicked="OnNavigateButtonClicked"/>
+    <AbsoluteLayout>
+        <StackLayout Padding="10" 
+                     AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
+                     AbsoluteLayout.LayoutFlags="All">
+            <BoxView HeightRequest="20" BackgroundColor="Transparent"/>
 
-        <ListView x:Name="ItemsListView" >
-            <ListView.ItemTemplate>
-                <DataTemplate >
-                    <ViewCell >
-                      <StackLayout Padding="10" >
-                            <Label Text="{Binding Nombre}" />
-                            <Label Text="{Binding Proveedor}"  />
-                            <Label Text="{Binding Cantidad }" />
-                            <Label Text="{Binding UnidadDeMedida}"  />
-                            <Label Text="{Binding PrecioCompra}"  />
-                            <Label Text="{Binding PrecioVenta}"  />
-                            <Label Text="{Binding FechaCaducidad, StringFormat='Caduca el {0:dd/MM/yyyy}' }"  />
-                            <Button Text="Editar" Clicked="OnNavigateButtonClicked" CommandParameter="{Binding .}" />
-                            <Button Text="Eliminar" Clicked="OnDeleteItemClicked" CommandParameter="{Binding .}"  />
-                        </StackLayout>
-                        
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            <SearchBar Placeholder="Buscar un producto..."
+                TextChanged="OnSearchBar"/>
 
-    </VerticalStackLayout>
+            <BoxView HeightRequest="20"  BackgroundColor="Transparent"/>
+
+            <CollectionView x:Name="ItemsListView" 
+                     >
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Horizontal" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate >
+                        <Grid   WidthRequest="340"  >
+                            <Grid.RowDefinitions >
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*" />
+                                <ColumnDefinition Width="2*"  />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Row="0" Grid.Column="0" Text="Nombre producto:" FontAttributes="Bold" 
+                            Padding="10, 10,10,10"/>
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Nombre}" 
+                            Padding="10, 10,10,10"/>
+                            <Label Grid.Row="1" Grid.Column="0" Text="Precio Compra:" FontAttributes="Bold" 
+                            Padding="10, 10,10,10"/>
+                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding PrecioCompra, StringFormat='C$ {0}'}" 
+                            Padding="10, 10,10,10"/>
+                            <Label Grid.Row="2" Grid.Column="0" Text="Precio Venta:" FontAttributes="Bold" 
+                            Padding="10, 10,10,10"/>
+                            <Label Grid.Row="2" Grid.Column="1" Text="{Binding PrecioVenta, StringFormat='C$ {0}'}" 
+                            Padding="10, 10,10,10"/>
+                            <Label Grid.Row="3" Grid.Column="0" Text="Cantidad:" FontAttributes="Bold" 
+                            Padding="10, 10,10,10"/>
+                            <Label Grid.Row="3" Grid.Column="1" Text="{Binding Cantidad, StringFormat='{0} '}" 
+                            Padding="10, 10,10,10"/>
+                            <Label Grid.Row="3" Grid.Column="1" Text="{Binding UnidadDeMedida, StringFormat='{0}'}" 
+                            Padding="10, 10,30,10"
+                            HorizontalOptions="End"/>
+                            <Label Grid.Row="4" Grid.Column="0" Text="Fecha Caducidad:" FontAttributes="Bold" 
+                            Padding="10, 10,10,10"/>
+                            <Label Grid.Row="4" Grid.Column="1" Text="{Binding FechaCaducidad, StringFormat='{0:dd/MM/yyyy}'}" 
+                            Padding="10, 10,10,10"/>
+                            <Label Grid.Row="5" Grid.Column="1"/>
+                            <Button Grid.Row="6" Grid.Column="0" Text="Eliminar"
+                             BackgroundColor="LightSalmon"
+                             Padding="10, 10,10,10"/>
+                            <Button Grid.Row="6" Grid.Column="1" Text="Editar"
+                             BackgroundColor="LightBlue"
+                             Padding="10, 10,10,10"
+                                    Clicked="OnEditItemClicked"/>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+
+        <Button Text="+" 
+                FontSize="Title"
+                BackgroundColor="DodgerBlue" 
+                TextColor="White" CornerRadius="50" 
+                WidthRequest="70" HeightRequest="70" 
+                AbsoluteLayout.LayoutBounds="0.9, 0.9, AutoSize, AutoSize" 
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                Clicked="OnNavigateButtonClicked"/>
+    </AbsoluteLayout>
 </ContentPage>
